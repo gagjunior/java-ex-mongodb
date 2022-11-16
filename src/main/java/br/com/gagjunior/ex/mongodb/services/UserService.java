@@ -1,5 +1,6 @@
 package br.com.gagjunior.ex.mongodb.services;
 
+import br.com.gagjunior.ex.mongodb.dto.UserDTO;
 import br.com.gagjunior.ex.mongodb.entities.User;
 import br.com.gagjunior.ex.mongodb.repositories.UserRepository;
 import br.com.gagjunior.ex.mongodb.services.exceptions.ObjectNotFoundException;
@@ -20,5 +21,13 @@ public class UserService {
 
     public User findById(String id) {
         return userRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+    }
+
+    public User insert(User user) {
+        return userRepository.insert(user);
+    }
+
+    public User fromDTO(UserDTO userDto) {
+        return new User(userDto.getId(), userDto.getName(), userDto.getEmail());
     }
 }
