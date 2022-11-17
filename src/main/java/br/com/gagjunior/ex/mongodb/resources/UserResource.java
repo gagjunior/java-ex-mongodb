@@ -1,7 +1,7 @@
 package br.com.gagjunior.ex.mongodb.resources;
 
-import br.com.gagjunior.ex.mongodb.dto.UserDTO;
-import br.com.gagjunior.ex.mongodb.entities.User;
+import br.com.gagjunior.ex.mongodb.domain.dto.UserDTO;
+import br.com.gagjunior.ex.mongodb.domain.User;
 import br.com.gagjunior.ex.mongodb.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

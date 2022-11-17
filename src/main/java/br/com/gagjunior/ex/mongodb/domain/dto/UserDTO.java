@@ -1,7 +1,7 @@
-package br.com.gagjunior.ex.mongodb.dto;
+package br.com.gagjunior.ex.mongodb.domain.dto;
 
 
-import br.com.gagjunior.ex.mongodb.entities.User;
+import br.com.gagjunior.ex.mongodb.domain.User;
 
 import java.io.Serializable;
 

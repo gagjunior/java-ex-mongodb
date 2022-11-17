@@ -1,4 +1,4 @@
-package br.com.gagjunior.ex.mongodb.entities;
+package br.com.gagjunior.ex.mongodb.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

@@ -1,7 +1,8 @@
 package br.com.gagjunior.ex.mongodb.config;
 
-import br.com.gagjunior.ex.mongodb.entities.Post;
-import br.com.gagjunior.ex.mongodb.entities.User;
+import br.com.gagjunior.ex.mongodb.domain.Post;
+import br.com.gagjunior.ex.mongodb.domain.User;
+import br.com.gagjunior.ex.mongodb.domain.dto.AuthorDTO;
 import br.com.gagjunior.ex.mongodb.repositories.PostRepository;
 import br.com.gagjunior.ex.mongodb.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,12 +40,12 @@ public class Instantiation implements CommandLineRunner {
                 LocalDate.parse("21/03/2018", fmt),
                 "Partiu viagem",
                 "Vou viajar para São Paulo. Abraços",
-                maria);
+                new AuthorDTO(maria));
         Post post2 = new Post(null,
                 LocalDate.parse("23/03/2018", fmt),
                 "Bom dia",
                 "Acordei feliz hoje",
-                maria);
+                new AuthorDTO(maria));
         postRepository.saveAll(Arrays.asList(post1, post2));
 
     }
