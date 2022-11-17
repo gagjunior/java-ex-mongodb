@@ -6,6 +6,7 @@ import br.com.gagjunior.ex.mongodb.repositories.UserRepository;
 import br.com.gagjunior.ex.mongodb.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
 
@@ -27,9 +28,21 @@ public class UserService {
         return userRepository.insert(user);
     }
 
-    public void delete(String id){
+    public void delete(String id) {
         findById(id);
         userRepository.deleteById(id);
+    }
+
+    @PutMapping
+    public User update(User user) {
+        User userToUpdate = userRepository.findById(user.getId()).get();
+        updateData(userToUpdate, user);
+        return userRepository.save(userToUpdate);
+    }
+
+    private void updateData(User userToUpdate, User user) {
+        userToUpdate.setEmail(user.getEmail());
+        userToUpdate.setName(user.getName());
     }
 
     public User fromDTO(UserDTO userDto) {
