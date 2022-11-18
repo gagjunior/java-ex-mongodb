@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-@Document
+@Document(collection = "post")
 public class Post implements Serializable {
 
     @Id
