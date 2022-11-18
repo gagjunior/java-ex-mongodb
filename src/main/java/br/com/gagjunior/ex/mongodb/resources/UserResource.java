@@ -1,7 +1,8 @@
 package br.com.gagjunior.ex.mongodb.resources;
 
-import br.com.gagjunior.ex.mongodb.domain.dto.UserDTO;
+import br.com.gagjunior.ex.mongodb.domain.Post;
 import br.com.gagjunior.ex.mongodb.domain.User;
+import br.com.gagjunior.ex.mongodb.domain.dto.UserDTO;
 import br.com.gagjunior.ex.mongodb.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -58,6 +59,12 @@ public class UserResource {
         userToUpdate.setId(id);
         userToUpdate = userService.update(userToUpdate);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping(value = "/{id}/posts")
+    public ResponseEntity<List<Post>> getPosts(@PathVariable String id) {
+        User user = userService.findById(id);
+        return ResponseEntity.ok(user.getPosts());
     }
 
 }
